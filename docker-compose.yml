@@ -1,23 +1,23 @@
 services:
     directus:
         image: directus/directus:11.4.0
-        container_name: lancasters_solicitors_portal
+        container_name: directus_cms
         restart: always
         ports:
-            - 8056:8056
+            - 8055:8055
         volumes:
             - ./database:/database
             - ./uploads:/uploads
             - ./extensions:/extensions
         environment:
-            SECRET: "E7wc805kXAKR8RcRKjX8GwT"
+            SECRET: ${SECRET}
             ADMIN_EMAIL: ${ADMIN_EMAIL}
             ADMIN_PASSWORD: ${ADMIN_PASSWORD}
             DB_CLIENT: "sqlite3"
             DB_FILENAME: "/database/data.db"
             WEBSOCKETS_ENABLED: "true"
             HOST: "0.0.0.0"
-            PORT: "8056"
+            PORT: "8055"
             PUBLIC_URL: ${PUBLIC_URL}
             LOG_LEVEL: "info"  # Or your desired log level
             LOG_STYLE: "pretty" # Or "raw"
